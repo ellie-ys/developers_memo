@@ -20,10 +20,15 @@ def create_app(test_config=None):
     @app.route('/')
     def hello():
         return 'Hello, Ellie!'
-        
+
+
+    #database init함수
     from . import db
     db.init_app(app)
-    #db 파일 init_app함수가져와서 넘겨줌.
+
+    #blueprint설정
+    from . import auth
+    app.register_blueprint(auth.bp)
 
     return app
 
