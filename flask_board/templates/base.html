@@ -4,7 +4,7 @@
 <!-- static -> /static/style.css
 static -> /s/style.css -->
 <nav>
-  <h1>개발자 커뮤니티</h1>
+  <h1>Developer Community</h1>
   <ul>
     {% if g.user %}
     <li><span>{{ g.user['username'] }}</span></li>
@@ -18,11 +18,8 @@ static -> /s/style.css -->
   </ul>
 </nav>
 <section class="content">
-  <header>
-      {% block header %}{% endblock %}
-    </header>
+  <header>{% block header %}{% endblock %}</header>
   {% for message in get_flashed_messages() %}
   <div class="flash">{{ message }}</div>
-  {% endfor %}
-  {% block content %}{% endblock %}
+  {% endfor %} {% block content %}{% endblock %}
 </section>
