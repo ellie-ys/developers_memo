@@ -17,9 +17,9 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    @app.route('/')
+    @app.route('/hello')
     def hello():
-        return 'Hello, Ellie!'
+        return 'Hello World:)'
 
 
     #database init함수
@@ -29,6 +29,9 @@ def create_app(test_config=None):
     #blueprint설정
     from . import auth
     app.register_blueprint(auth.bp)
+    from . import board
+    app.register_blueprint(board.bp)
+    app.add_url_rule('/', endpoint='index')
 
     return app
 

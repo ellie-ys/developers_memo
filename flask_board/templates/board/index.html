@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}게시글 보기{% endblock %}</h1>
+  {% if g.user %}
+    <a class="action" href="{{ url_for('board.create') }}">새로운 글 작성하기</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  {% for board in boards %}
+    <article class="post">
+      <header>
+        <div>
+          <h1>{{ board['title'] }}</h1>
+          <div class="about">{{ board['username'] }}님의 작성글 {{ board['created'].strftime('%Y-%m-%d') }}</div>
+        </div>
+        {% if g.user['id'] == board['author_id'] %}
+          <a class="action" href="{{ url_for('board.update', id=board['id']) }}">Edit</a>
+        {% endif %}
+      </header>
+      <p class="body">{{ board['body'] }}</p>
+    </article>
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}

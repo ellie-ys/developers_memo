@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block header %}
+<h1>{% block title %}수정하기 "{{ board['title'] }}"{% endblock %}</h1>
+{% endblock %} {% block content %}
+<form method="post">
+  <label for="title">제목</label>
+  <input
+    name="title"
+    id="title"
+    value="{{ request.form['title'] or board['title'] }}"
+    required
+  />
+  <label for="body">내용</label>
+  <textarea name="body" id="body">
+{{ request.form['body'] or board['body'] }}</textarea
+  >
+  <input type="submit" value="저장하기" />
+</form>
+<hr />
+<form action="{{ url_for('board.delete', id=board['id']) }}" method="post">
+  <input
+    class="danger"
+    type="submit"
+    value="Delete"
+    onclick="return confirm('정말 삭제하시겠습니까?');"
+  />
+</form>
+{% endblock %}

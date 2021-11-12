@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}새 게시글 작성하기{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="title">제목</label>
+    <input name="title" id="title" value="{{ request.form['title'] }}" required>
+    <label for="body">내용</label>
+    <textarea name="body" id="body">{{ request.form['body'] }}</textarea>
+    <input type="submit" value="저장하기">
+  </form>
+{% endblock %}
