@@ -1,1 +1,4 @@
-# elice_flask_board
+# Developer's Memo
+
+- 개발자들만 가입가능
+- 간단한 메모나 고민을 적을 수 있는 메모장입니다.
