@@ -6,8 +6,9 @@ def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
 
     app.config.from_mapping(
-        SECRET_KEY='dev', # 배포시 임의의 값으로 수정해야 함.
-        DATABASE=os.path.join(app.instance_path, 'flask_board.sqlite'),
+        SECRET_KEY = 'dev', # 배포시 임의의 값으로 수정해야 함.
+        DATABASE = os.path.join(app.instance_path, 'flask_board.sqlite'),
+        #DATABASE가 INSTANCE폴더가리킴, flask_board.SQLITE 이름으로 생성하겠다
     )
     
     try:
@@ -19,5 +20,10 @@ def create_app(test_config=None):
     @app.route('/')
     def hello():
         return 'Hello, Ellie!'
+        
+    from . import db
+    db.init_app(app)
+    #db 파일 init_app함수가져와서 넘겨줌.
 
     return app
+
