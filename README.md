@@ -1,10 +1,12 @@
 # Developer's Memo
 
+![image](https://user-images.githubusercontent.com/91821953/141883495-19a84390-49bc-4d1d-99e3-ba52d6407f3c.png)
+
 - 개인 미니 사이드 프로젝트입니다.
 - 같은 관심사를 가진 guild원이 모여서 회원가입을 하고, 간단한 메모나 고민, 링크 등을 공유하고 수정 삭제 또한 가능한 게시판을 만들어보았습니다. 
 - 추후 댓글 기능을 추가할 예정입니다.
 
-![image](https://user-images.githubusercontent.com/91821953/141883495-19a84390-49bc-4d1d-99e3-ba52d6407f3c.png)
+
 
 ## Installing
 ### 1. 가상환경 설정
